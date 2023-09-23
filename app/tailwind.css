@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 * {
-    @apply font-semibold
+    @apply font-semibold transition-all duration-500
 }

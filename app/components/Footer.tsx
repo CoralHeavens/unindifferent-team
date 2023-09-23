@@ -20,7 +20,7 @@ const Footer:React.FC = () => {
 
             <section className="w-full flex justify-center items-center gap-8 flex-wrap uppercase">
                 {footerSections.map((text) => (
-                    <div className="text-base font-medium">
+                    <div key={text} className="text-base font-medium">
                         {text}
                     </div>
                 ))}
