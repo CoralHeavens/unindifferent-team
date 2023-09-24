@@ -1,41 +1,37 @@
 import type { MetaFunction } from "@remix-run/node";
 
+import Background from '../components/Background';
+import Header from '../components/Header';
+import HelpSection from '../components/HelpSection';
+import Footer from '../components/Footer';
+import { t } from "~/root";
+import keys from "~/localization/translationKeys";
+import en from "~/localization/en";
+
 export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
+  try {
+    return [
+      { title: t(keys.title) },
+      { name: "description", content: t(keys.helpSectionDescription) },
+    ];
+  } catch (error) {
+    return [
+      { title: en[keys.title] },
+      { name: "description", content: en[keys.helpSectionDescription] },
+    ];
+  }
 };
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <main className='w-full max-w-[800px] mx-auto p-8 bg-slate-200 bg-opacity-70 rounded-xl'>
+      <Background />
+
+      <Header />
+
+      <HelpSection />
+
+      <Footer />
+    </main>
   );
 }
