@@ -4,6 +4,9 @@ import keys from "~/localization/translationKeys";
 import { useContext } from 'react';
 import { LangContext } from "~/context/context";
 import Button from "./Button";
+import LinkButton from "./LinkButton";
+
+const buttonURL = 'https://www.paypal.com/donate/?hosted_button_id=UBVTDAFGV2JEY';
 
 const HelpSection:React.FC = () => {
     const langContext = useContext(LangContext);
@@ -23,9 +26,9 @@ const HelpSection:React.FC = () => {
                 {t(keys.helpSectionDescription)}
             </article>
 
-            <Button
+            <LinkButton
                 label={t(keys.headerButton)}
-                onClick={() => {}}
+                link={buttonURL}
             />
 
             <img alt="" src={payPal} className="mt-8 max-w-[60%]" />
